@@ -31,7 +31,7 @@ celery worker -A core -B --loglevel=INFO
 ```
 modify /bitcoin-zoo/core/celeryconfig.py 
 CELERY_ALWAYS_EAGER = True
-
+And then ....
 ```
 ## How to Run Testing Case
 
