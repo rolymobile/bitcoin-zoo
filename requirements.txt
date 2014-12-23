@@ -27,6 +27,7 @@ python-twitter
 pytz==2014.9
 qrcode==5.1
 readline==6.2.4.1
+flower==0.7.3
 six==1.8.0
 South==1.0.1
 Werkzeug==0.9.4
