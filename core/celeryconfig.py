@@ -1,9 +1,9 @@
 BROKER_URL = 'redis://localhost:6379'
-# TODO: Save Celery Result to Backend 
-CELERY_RESULT_BACKEND='djcelery.backends.database:DatabaseBackend'
-# CELERY_RESULT_BACKEND = 'redis://localhost:6379'
-# In Debug Mode this value be setting true 
-CELERY_ALWAYS_EAGER = True
+# TODO: Save Celery Result to Backend
+# CELERY_RESULT_BACKEND='djcelery.backends.database:DatabaseBackend'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+# In Debug Mode this value be setting true
+# CELERY_ALWAYS_EAGER = True
 
 
 #celery setting
@@ -20,6 +20,6 @@ CELERYBEAT_SCHEDULE = {
 #     'check_integrity': {
 #         'task': 'django_bitcoin.tasks.check_integrity',
 #         'schedule': timedelta(seconds=10),
-#     },        
+#     },
 
 }
