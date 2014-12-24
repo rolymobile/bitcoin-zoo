@@ -8,7 +8,7 @@ from decimal import Decimal
 import unittest
 from django_bitcoin import Wallet
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "core.settings")
+os.envir２on.setdefault("DJANGO_SETTINGS_MODULE", "core.settings")
 
 class InternalChangesTest(unittest.TestCase):
     def setUp(self):

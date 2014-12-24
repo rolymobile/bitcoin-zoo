@@ -21,7 +21,7 @@ from django.contrib.sites.models import Site
 from django.contrib.auth.models import User
 # from django.db import models
 from django.db.models import ForeignKey , BooleanField , CharField
-
+from django.contrib.auth.models import User
 from django_bitcoin.utils import *
 from django_bitcoin.utils import bitcoind
 from django_bitcoin import settings
@@ -37,7 +37,6 @@ from BCAddressField import is_valid_btc_address
 
 from django.db import transaction as db_transaction
 from distributedlock import distributedlock, MemcachedLock, LockNotAcquiredError
-from django.db.models import Avg, Max, Min, Sum
 from celery import task
 
 def CacheLock(key, lock=None, blocking=True, timeout=10000):
@@ -279,9 +278,9 @@ class BitcoinAddress(models.Model):
     pkey2 = models.CharField(max_length=50 , null=False)
     pkey3 = models.CharField(max_length=50 , null=False)
 #     pkey4 = models.CharField(max_length=50 , default='')
-
+    user = 
     created_at = models.DateTimeField(default=datetime.datetime.now)
-    user = models.CharField(max_length=50, null=False , default='')
+#     user = models.CharField(max_length=50, null=False , default='')
     active = models.BooleanField(default=False)
     least_received = models.DecimalField(max_digits=16, decimal_places=8, default=Decimal(0))
     least_received_confirmed = models.DecimalField(max_digits=16, decimal_places=8, default=Decimal(0))
@@ -664,9 +663,10 @@ class WalletTransaction(models.Model):
 from django.db.models import Q
 
 class Wallet(models.Model):
+    
     created_at = models.DateTimeField(default=datetime.datetime.now)
     updated_at = models.DateTimeField()
-
+    user = models.ForeignKey
     label = models.CharField(max_length=50, blank=True)
     # DEPRECATED: changed to foreign key
     # addresses = models.ManyToManyField(BitcoinAddress, through="WalletBitcoinAddress")
